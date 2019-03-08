@@ -22,6 +22,7 @@ char checkUpDowns (char elev[], int height) {
   }
   // printf("Up Counter: %d\n", ctrUp);
   // printf("Down Counter: %d\n", ctrDown);
+  //Printing the final height
   printf("Final Height: %d%c\n", height, 'm' );
   return 1;
 }
@@ -32,7 +33,7 @@ int main(int x){
 	int h = 0; //The current height
   //Function that takes the trail string and returns the final height
   checkUpDowns(elev, h);
-  //No need to the below statement
+  //No need to the below statement here
 	// printf("%d\n", h);
 	//printf("%s", elev);
 	return 0;
