@@ -5,10 +5,13 @@
 # To install node js:
 # Pre-requisite(mac users): Homebrew, XCode(latest version)
 # Go to terminal:
-# type: brew install node
-# To check if node is running, type: npm -v
+# type: "brew install node"
+# To check if node is running, type: "npm -v"
 #
-#
+#To run the program:
+#Type "coffee trail.coffee" in your terminal with coffeescript installed
+
+
 #Using Process module and process.stdin is used to create a readable stream so that
 #we can take the input stream from the user and break it into chunks
 #For more information on Streams, buffers and chunks: https://nodejs.org/api/buffer.html
@@ -40,5 +43,5 @@ stdin.on 'data', (input) ->
 		#increment the value of i
 	  i++
 	#console.log the final height
-	console.log 'Final height', height, 'm'
+	console.log 'Final height: ', height, 'm'
 	process.exit()
