@@ -125,5 +125,6 @@ for key, val in lst: #Final Name List with key, value
     #     if listAddr[i] >= 'a' and listAddr[i] <= 'z':
     #         ordListAddrIndex = int(ord(listAddr[i]))
     #         checkFreqName.append(ordListAddrIndex - 97)
-
+if matches == 1:
+    print('Email verified successfully!')
 print("Matches: ", matches)
