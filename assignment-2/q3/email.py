@@ -13,6 +13,7 @@ lowerAddr = addr.lower()
 
 #Checking for the sub string before @
 if lowerAddr.find("@") != -1:
+    #Slice the string from 0 to the @ position
     checkForAt = (lowerAddr[:lowerAddr.find("@")])
 else:
     print('@ not found, invalid email format')
@@ -41,9 +42,9 @@ newListAddr = list()
 
 #removing extra numbers or special characters from the email
 for i in listAddr:
+    #checking for the ascii values of the elment, if it's not in the range then remove it
     if ord(i) >= 97 and ord(i) <= 120:
         newListAddr.append(i)
-
 
 #test cases check
 for i in newListAddr:
