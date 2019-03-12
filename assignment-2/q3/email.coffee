@@ -12,4 +12,4 @@
 
 
 readline = require('readline-sync')
-name = readline.question('what?')
+name = readline.question('Enter ')

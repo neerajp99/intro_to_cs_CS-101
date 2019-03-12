@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> // For exit()
 #include <string.h>
+#define MAX 100000
 int main(){
 	char fname[100];//Name of text file to be changed
 	char foutn[100];//Name of the output text file
@@ -21,7 +22,7 @@ int main(){
 	FILE *outputFile;
 
 	//Initializing getWord with a size of 100 maximum characters.
-	char getWord[100];
+	char getWord[MAX];
 
 	//fgets retain the newline character, so we add one for input filename
 	fname [ strcspn(fname, "\r\n") ] = 0;
