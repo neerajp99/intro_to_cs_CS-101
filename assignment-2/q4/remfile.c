@@ -41,6 +41,10 @@ int main(){
 		printf("%s\n", "Cannot open file");
 		exit(0);
 	}
+	if (outputFile == NULL) {
+		printf("%s\n", "No Output File Available");
+		exit(1);
+	}
 
 	//Looping over and getting word by word
 	while (fscanf (inputFile, "%1023s", getWord ) == 1 ) {

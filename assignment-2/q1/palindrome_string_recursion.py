@@ -1,6 +1,3 @@
-// I've not attended the class, so not completely sure about the program that Professor worked on.
-// below is my illustration of a recursive call for a longest palindromic sub string in a string
-
 function LengthLPS(i, j):
 	if i==j: return 1
 
