@@ -33,6 +33,7 @@ int main(){
 		printf("%s\n", "Cannot open file");
 		exit(0);
 	}
+
 	c = fgetc(inputFile);
 	while (c != EOF)
 	{
