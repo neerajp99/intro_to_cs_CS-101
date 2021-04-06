@@ -7,72 +7,80 @@
 #include <string.h>
 #include <math.h>
 
-struct stack {
-    char values[100];
-    int top;
-};
-typedef struct stack st;
+int arr[1000];
 int count = 0;
 
 /*
- * Method to initialise an empty stack
+ * Method Enqueue the queue
  */ 
-void createEmptyStack(st *s) {
-    s->top = -1;
-}
-
-/*
- * Method to check if the stack is empty or not
- */ 
-int isEmpty(st *s) {
-    if (s->top == -1){
-        return 1;   
+void enqueue(void) {
+    if (count > 1000) {
+        printf("Sorry! Queue is full! \n");
     } else {
-        return 0;
+        printf ("Enter the integer to add: ");
+        scanf  ("%d", &arr[count]);
+        count += 1;
     }
 }
 
+/*
+ * Method Dequeue the queue
+ */ 
+void dequeue(void) {
+    if (count < 1) {
+        printf("Queue is empty! \n");
+    } else {
+        for (int i = 0; i < count; i++) {
+            arr[i] = arr[i + 1];
+        }
+        count -= 1;
+        printf("Item has been removed! \n");
+    }
+}
 
+/*
+ * Method Show the queue elements
+ */ 
+void show(void) {
+    if (count < 1) {
+        printf("Queue is empty! \n");
+    } else {
+        printf("The Queue is: ");
+        for (int i = 0; i < count; i++) {
+            printf("%d ", arr[i]);
+        }
+    }
+}
 
 /*
  * Main function 
  */ 
 int main(void) {
-    char value[100];
-    printf("Enter the input string: ");
-    scanf("%s", value);
-    st *s = (st *)malloc(sizeof(st));
-    createEmptyStack(s);
-
     while (1)
     {
         int choice;
 
         printf ("\n******************\n");
         printf ("MENU: \n");
-        printf ("1. View the queue \n2. Add a new element to the queue \n3. Find element in the queue \n4. Dequeue from queue \n5.Exit \n");
+        printf ("1. View the queue \n2. Enqueue \n3. Dequeue  \n4.Exit \n");
         scanf  ("%d", &choice);
         printf ("\n******************\n");
 
         switch (choice)
         {
             case 1: 
-                show (s);
+                show();
                 break;
 
             case 2: 
-                add (s);
+                enqueue();
                 break;
 
             case 3:
-                find (s);
+                dequeue();
                 break;
 
-            case 4:
-                deleteNode(s);
-                break;
-
-            case 5: printf ("Thank you. \n");
+            case 4: printf ("Thank you. \n");
                 return 0;
 
             default: printf ("Invalid input. \n");

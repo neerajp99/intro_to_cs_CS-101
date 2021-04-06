@@ -55,58 +55,30 @@ void show(struct integers *head) {
     printf("NULL \n\n");
 } 
 
-
 /*
- * Method to delete duplicates from a sorted linked list 
- * Using two pointer
- */ 
-void deleteDuplicates(struct integers *head) {
-    struct integers *curr = head;
-    struct integers *next;
-    int count = 1;
-
-    while (curr -> next != NULL) {
-        if (curr -> number == curr -> next -> number) {
-            next = curr -> next -> next;
-            curr -> next = next;
-        } else {
-            curr = curr -> next;
-        }
-    }
-}
-
-/*
- * Method to sort a linked list 
- * Using a hash table and deleting nodes at a specific key
+ * Method to remove duplicates 
+ * Brute force approach in O(n^2)
+ * Could be done using a hash table and deleting nodes at a specific key
  * Could also be done Using merge sort - Top to Bottom approach
  */ 
-void sortLinkedList(struct integers *head) {
-    // If the list is empty or holds a single element, means list is already sorted 
-    // if (head == NULL || head -> next == NULL) {
-    //     return 0;
-    // }
+void removeDuplicates(struct integers *head) {
+    struct integers *firstPointer = head;
+    struct integers *secondPointer = head;
+    struct integers *node;
 
-    // // Initialise node, slow and fast pointers 
-    // struct integers *node = head;
-    // struct integers *slow = head;
-    // struct integers *fast = head;
+    while (firstPointer != NULL && firstPointer -> next != NULL) {
+        secondPointer = firstPointer;
 
-    // while (fast != NULL && fast -> next != NULL) {
-    //     node = slow; // End of the first half
-    //     slow = slow -> next; // Start of the second half
-    //     fast = fast -> next -> next; // End of the second half
-    // }
-
-    // node -> next = NULL;
-
-    // struct integers *left = sortLinkedList(head);
-    // struct integers *right = sortLinkedList(slow);
-
-    // mergeSort(left, right);
-
-
+        while (secondPointer -> next != NULL) {
+            if (firstPointer -> number == secondPointer -> next -> number) {
+                secondPointer -> next = secondPointer -> next -> next;
+            } else {
+                secondPointer = secondPointer -> next;
+            }
+        } 
+        firstPointer = firstPointer -> next;
+    }
 } 
-
 
 /*
  * Main function 
@@ -117,16 +89,24 @@ int main(void) {
     struct integers *l1Head = NULL;
 
     // Add integer 1 to 10 to the first linked list 
-    for (int i = 1 ; i <= 20 ; i = i + 2) {
-        add(i, &l1Head);
-        add(i, &l1Head);
-    }
+    // for (int i = 1 ; i <= 20 ; i = i + 2) {
+    //     add(i, &l1Head);
+    //     add(i, &l1Head);
+    // }
+    add(1, &l1Head);
+    add(5, &l1Head);
+    add(1, &l1Head);
+    add(4, &l1Head);
+    add(3, &l1Head);
+    add(2, &l1Head);
+    add(5, &l1Head);
+    add(4, &l1Head);
+
 
     // Show the contents of the linked list and print the sum as well 
     printf("Initial FIRST linked list is: ");
     show(l1Head);
-    sortLinkedList(l1Head);
-    deleteDuplicates(l1Head);
+    removeDuplicates(l1Head);
     printf("After removing duplicates: ");
     show(l1Head);
 }
